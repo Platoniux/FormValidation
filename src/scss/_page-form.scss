@@ -1,0 +1,69 @@
+.page-form {
+  margin: 20px auto;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
+  background-color: $general-color-bg;
+  border-radius: 10px;
+  box-shadow: 11px -9px 42px -4px rgba(0,0,0,0.39);
+
+  &__headline {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: $big-font;
+    color: $general-color-font;
+  }
+
+  &__form-fields {
+    color: $general-color-font;
+  }
+
+  &__input-requirements {
+    list-style-type: none;
+    margin: 10px 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease-out; 
+    color: $secondary-color-font;
+
+    & li {
+      margin: 5px 0;
+      font-size: $smaller-font;
+      font-style: italic;
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  &__btn {
+    border: 0;
+    padding: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: $secondary-color-font;
+    border-radius: 10px;
+    transition: all 0.3s;
+
+    &--cancel {
+      background-color: $color-btn-cancel;
+      margin-right: 10px;
+
+      &:hover {
+        background-color: $invalid-color;
+      }
+    }
+
+    &--submit {
+      background-color: $valid-color;
+      margin-left: 10px;
+
+      &:hover {
+        background-color: $hover-btn-submit;
+      }
+    }
+  }
+}

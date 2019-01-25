@@ -1,0 +1,39 @@
+.payment {
+  margin-top: 15px;
+  border: 0;
+  border-top: 5px solid $general-color-font;
+
+  &__legend {
+    text-transform: uppercase;
+    font-size: $mid-font;
+    font-weight: bold;
+  }
+
+  &__label {
+    font-size: $sm-font;
+    font-weight: bold;
+  }
+
+  &__field {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    height: 40px;
+    font-size: $sm-font;
+    padding: 5px;
+    border-width: 0;
+    border-radius: 10px;
+
+    &--textarea {
+      height: auto;
+    }
+
+    &:hover + .page-form__input-requirements,
+    &:focus + .page-form__input-requirements,
+    &:active + .page-form__input-requirements {
+      max-height: 1000px; /* any large number (bigger then the .input-requirements list) */
+      transition: max-height 1s ease-in;
+    }
+
+  }
+}

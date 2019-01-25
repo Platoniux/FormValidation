@@ -1,0 +1,51 @@
+html {
+  box-sizing: border-box;
+  line-height: 1.15;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  font-family: $general-font-family;
+  background-color: $body-bg;
+}
+
+ul {
+    padding: 0;
+}
+
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 100%; 
+  line-height: 1.15; 
+  margin: 0; 
+}
+
+button { 
+  text-transform: none;
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  padding: 0;
+}
+
+

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Forms</title>
+</head>
+<body>
+  <div class="page-form">
+    <h1 class="page-form__headline">
+      information about customer
+    </h1>
+    <form id="customer-info" 
+          class="page-form__form-fields js-form" 
+          name="customer-info" 
+          action="#" 
+          method="POST" 
+          autocomplete="off">
+      <fieldset class="contact">
+        <legend class="contact__legend">
+          contact
+        </legend>
+        <label for="customer-name" class="contact__label">
+          Name
+          <input id="customer-name" 
+                 class="contact__field js-customer-name js-iputs" 
+                 name="customer-name" 
+                 type="text" 
+                 autocomplete ="section-contact name" 
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i"
+                 placeholder="Full name">
+          <ul class="page-form__input-requirements js-custom-name-req">
+            <li>This field is required</li>
+            <li>At least 3 characters long</li>
+            <li>Must only contain letters (no digits or special characters)</li>
+          </ul>
+        </label>
+        <label for="customer-email" class="contact__label">
+          Email
+          <input type="email"
+                 id="customer-email"
+                 class="contact__field js-customer-email js-iputs"
+                 name="customer-email" 
+                 autocomplete="section-contact email"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" 
+                 required
+                 inputmode="email"
+                 placeholder="name@example.com">
+          <ul class="page-form__input-requirements js-custom-email-req">
+            <li>This field is required</li>
+            <li>Must be valid email address</li>
+          </ul>
+        </label>
+        <label for="customer-tel" class="contact__label">
+          Phone
+          <input type="tel"
+                 id="customer-tel"
+                 class="contact__field js-customer-tel js-iputs"
+                 name="customer-tel" 
+                 autocomplete="section-contact mobile tel"
+                 minlength="9" 
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/\+[0-9]+/" 
+                 inputmode="tel"
+                 placeholder="+11234567">
+          <ul class="page-form__input-requirements js-custom-phone-req">
+            <li>This field is required</li>
+            <li>First character is '+'</li>
+            <li>Must contain only digits</li>
+            <li>Minlenght is 9 characters</li>
+          </ul>
+        </label>
+      </fieldset>
+      <fieldset class="shipping">
+        <legend class="shipping__legend">
+          shipping
+        </legend>
+        <label for="customer-address" class="shipping__label">
+          Address
+          <textarea name="customer-address" 
+                    id="customer-address"
+                    class="shipping__field shipping__field--textarea js-customer-address js-iputs"
+                    autocomplete="section-shipping shipping street-address"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    placeholder="Room 1408, 2245 Lexington Ave" 
+                    required 
+                    rows="3"></textarea>
+          <ul class="page-form__input-requirements js-custom-address-req">
+            <li>This field is required</li>
+          </ul>
+        </label>
+        <label for="customer-city" class="shipping__label">
+          City
+          <input type="text"
+                 id="customer-city"
+                 class="shipping__field js-customer-city js-iputs"
+                 name="customer-city"
+                 autocomplete="section-shipping shipping address-level2"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 placeholder="New York" 
+                 required
+                 pattern="/^[a-z ,.'-]+$/i">
+          <ul class="page-form__input-requirements js-custom-city-req">
+            <li>This field is required</li>
+            <li>Must contain only letters (no digits or special characters)</li>
+          </ul>
+        </label>
+        <label for="customer-state" class="shipping__label">
+          State
+          <input type="text"
+                 id="customer-state"
+                 name="customer-state"
+                 class="shipping__field js-customer-state js-iputs" 
+                 autocomplete="section-shipping shipping address-level1"
+                 placeholder="New York" 
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/^[a-z ,.'-]+$/i">
+          <ul class="page-form__input-requirements js-custom-state-req">
+            <li>This field is required</li>
+            <li>Must contain only letters (no digits or special characters)</li>
+          </ul>
+        </label>
+        <label for="customer-zip" class="shipping__label">
+          ZIP
+          <input type="text"
+                 id="customer-zip"
+                 name="customer-zip"
+                 class="shipping__field js-customer-zip js-iputs"
+                 autocomplete="section-shipping shipping postal-code"
+                 minlength="3" 
+                 placeholder="10035" 
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/([\d\s\w])+/i">
+          <ul class="page-form__input-requirements js-custom-zip-req">
+            <li>This field is required</li>
+            <li>Must contain only letters and/or digits (no special characters)</li>
+          </ul>
+        </label>
+        <label for="customer-country" class="shipping__label">
+          Country
+          <input type="text"
+                 id="customer-country"
+                 name="customer-country"
+                 class="shipping__field js-customer-country js-iputs"
+                 autocomplete="section-shipping shipping country-name"
+                 placeholder="USA" 
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/^[a-z ,.'-]+$/i">
+          <ul class="page-form__input-requirements js-custom-country-req">
+            <li>This field is required</li>
+            <li>Must contain only letters (no digits or special characters)</li>
+          </ul>
+        </label>
+        <label for="bill-to-customer-address" class="shipping__bill-to-address">
+          <input type="checkbox"
+                 id="bill-to-customer-address"
+                 class="shipping__customer-ask-bill js-customer-ask-bill"
+                 name="bill-to-customer-address">
+          <span class="shipping__agree-bill-to-address"></span>
+          Bill to this address
+        </label>
+      </fieldset>
+      <fieldset class="payment js-payment">
+        <legend class="payment__legend">
+          payment
+        </legend>
+        <label for="cardholder-name" class="payment__label">
+          Name of card
+          <input type="text"
+                 id="cardholder-name"
+                 name="cardholder-name"
+                 class="payment__field js-cardholder-name js-iputs"
+                 autocomplete="section-billing billing cc-name"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i"
+                 placeholder="Full Name">
+          <ul class="page-form__input-requirements js-name-card-req">
+            <li>This field is required</li>
+            <li>At least 3 characters long</li>
+            <li>Must only contain letters (no digits or special characters)</li>
+          </ul>
+        </label>
+        <label for="card-number" class="payment__label">
+          Card number
+          <input type="tel"
+                 id="card-number"
+                 name="card-number"
+                 class="payment__field js-card-number js-iputs"
+                 autocomplete="section-billing billing cc-number"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required
+                 pattern="/[0-9]+/"
+                 maxlength="16"
+                 inputmode="numeric"
+                 placeholder="1111111111111111">
+          <ul class="page-form__input-requirements js-cc-number-req">
+            <li>This field is required</li>
+            <li>Must contain only 16 digits</li>
+            <li>Must only contain digits (no letters or special characters)</li>
+          </ul>
+        </label>
+        <label for="card-cvc" class="payment__label">
+          CVC
+          <input type="tel"
+                 id="card-cvc"
+                 class="payment__field js-card-cvc js-iputs"
+                 maxlength="4"
+                 inputmode="numeric"
+                 placeholder="CVC"
+                 pattern="/[0-9]+/"
+                 autocomplete="section-billing billing cc-csc"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required>
+          <ul class="page-form__input-requirements js-cvc-req">
+            <li>This field is required</li>
+            <li>Must contain only 3 or 4 digits</li>
+            <li>Must only contain digits (no letters or special characters)</li>
+          </ul>
+        </label>
+        <label for="card-expiry" class="payment__label">
+          Expiry
+          <input type="tel"
+                 id="card-expiry"
+                 name="card-expiry" 
+                 class="payment__field js-card-expiry js-iputs"
+                 autocomplete="section-billing billing cc-exp" 
+                 inputmode="numeric" 
+                 maxlength="7"
+                 placeholder="MM-YYYY"
+                 pattern="/\d{2}-\d{4}/"
+                 autocapitalize="off"
+                 autocorrect="off"
+                 required>
+          <ul class="page-form__input-requirements js-card-expiry-req">
+            <li>This field is required</li>
+            <li>Must contain only 7 characters (including '-')</li>
+            <li>Must only contain digits (no letters or special characters)</li>
+          </ul>
+        </label>
+      </fieldset>
+      <div class="page-form__btn-container">
+        <button type="reset"
+                form="customer-info" 
+                class="page-form__btn page-form__btn--cancel js-cancel-btn" 
+                name="cancel"
+                value="Cancel">
+          cancel
+        </button>
+        <button type="submit"
+                form="customer-info"
+                class="page-form__btn page-form__btn--submit js-submit-btn"
+                name="submit"
+                value="submit">
+          submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

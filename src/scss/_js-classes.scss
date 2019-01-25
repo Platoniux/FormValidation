@@ -1,0 +1,19 @@
+.js-valid {
+  color: $valid-color;
+}
+
+.js-valid-input:focus {
+  outline-color: $valid-color;
+}
+
+.js-invalid {
+  color: $invalid-color;
+}
+
+.js-invalid-input:focus {
+  outline-color: $invalid-color;
+}
+
+.js-display-none {
+  display: none;
+}
