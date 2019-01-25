@@ -191,8 +191,11 @@
     },
     {
       isInvalid: function(input) {
-        let regexp = /([^\d\s\w])+/;
-        return regexp.test(input.value);
+        if (input.value) {
+          let regexp = /.[^a-zA-Z0-9]+/;
+          return regexp.test(input.value);
+        }
+        return true;
       },
       invalidityMessage: 'Must contain only letters and/or digits (no special characters)',
       element: document.querySelector('.js-custom-zip-req li:nth-child(2)')
@@ -227,7 +230,7 @@
     },
     {
       isInvalid: function(input) {
-        return (input.value.length > 0 && input.value.length < 3);
+        return (input.value.length >= 0 && input.value.length < 3);
       },
       invalidityMessage: 'This field must contains at least 3 characters',
       element: document.querySelector('.js-name-card-req li:nth-child(2)')
@@ -259,8 +262,11 @@
     },
     {
       isInvalid: function(input) {
-        let regexp = /[^0-9]+/;
-        return regexp.test(input.value);
+        if (input.value) {
+          let regexp = /[^0-9]+/;
+          return regexp.test(input.value);
+        }
+        return true;
       },
       invalidityMessage: 'Must only contain digits (no letters or special characters)',
       element: document.querySelector('.js-cc-number-req li:nth-child(3)')
@@ -284,8 +290,11 @@
     },
     {
       isInvalid: function(input) {
-        let regexp = /[^0-9]+/;
-        return regexp.test(input.value);
+        if (input.value) {
+          let regexp = /[^0-9]+/;
+          return regexp.test(input.value);
+        }
+        return true;
       },
       invalidityMessage: 'Must only contain digits (no letters or special characters)',
       element: document.querySelector('.js-cvc-req li:nth-child(3)')
@@ -302,15 +311,22 @@
     },
     {
       isInvalid: function(input) {
-        return input.value.length != 7
+        if (input.value) {
+          let regexp = /\d\d\-\d\d\d\d/;
+          return (input.value.length != 7 || !(regexp.test(input.value)));
+        }
+        return true;
       },
       invalidityMessage: 'Must contain only 7 characters (including '-')',
       element: document.querySelector('.js-card-expiry-req li:nth-child(2)')
     },
     {
       isInvalid: function(input) {
-        let regexp = /[^-0-9]+/;
-        return regexp.test(input.value);
+        if (input.value) {
+          let regexp = /[^-0-9]+/;
+          return regexp.test(input.value);
+        }
+        return true;
       },
       invalidityMessage: 'Must only contain digits (no letters or special characters)',
       element: document.querySelector('.js-card-expiry-req li:nth-child(3)')
