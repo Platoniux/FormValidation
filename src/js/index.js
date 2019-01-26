@@ -333,16 +333,23 @@
     }
   ];
 
-  const form = document.querySelectorAll('.js-form');
+  const forms = document.querySelectorAll('.js-form');
+
+  installValidationForForm(forms);
 
   function installValidationForForm(arrOfForms) {
-    [].forEach.call(arrOfForms, item => {
-      let arrOfInputs = item.querySelectorAll('.js-inputs');
-      let buttons = item.querySelectorAll('.js-buttons');
+    [].forEach.call(arrOfForms, formItem => {
+      let arrOfInputs = formItem.querySelectorAll('.js-inputs');
+      let buttons = formItem.querySelectorAll('.js-buttons');
+      console.log(arrOfInputs);
+      console.log(buttons);
       [].forEach.call(arrOfInputs, item => {
+        console.log(123);
         if (item.classList.contains('js-customer-name')) {
+                    console.log(item);
           item.CustomValidation = new CustomValidation(item, userInfo);
           item.CustomValidation.arrOfRuls = customerNameValidityChecks;
+          console.log(item);
         } else if (item.classList.contains('js-customer-email')) {
           item.CustomValidation = new CustomValidation(item, userInfo);
           item.CustomValidation.arrOfRuls = emailValidityChecks;
@@ -377,87 +384,37 @@
           item.CustomValidation = new CustomValidation(item, userInfo);
           item.CustomValidation.arrOfRuls = expiryValidityChecks;
         }
-      })
+      });
+      [].forEach.call(buttons, btnItem => {
+        if (btnItem.classList.contains('js-cancel-btn')) {
+          btnItem.addEventListener('click', function() {
+            resetForm(formItem);
+          });
+        } else if (btnItem.classList.contains('js-submit-btn')) {
+          btnItem.addEventListener('click', function() {
+            getInfoAboutUser(userInfo);
+          });
+        }
+      });
+      formItem.addEventListener('submit', function() {
+        validate(arrOfInputs);
+      });
     });
+
+    function resetForm(someForm) {
+      someForm.reset();
+    }
+
+    function validate(inputs) {
+      [].forEach.call(arrOfInputs, item => {
+        if (item.CustomValidation) {
+          item.CustomValidation.checkInput();
+        }
+      });
+    }
+
+    function getInfoAboutUser(infoObj) {
+      console.dir(infoObj);
+    }
   }
-
-  // const customerNameInput = document.querySelector('.js-customer-name');
-  // customerNameInput.CustomValidation = new CustomValidation(customerNameInput, userInfo);
-  // customerNameInput.CustomValidation.arrOfRuls = customerNameValidityChecks;
-
-  // const customerEmail = document.querySelector('.js-customer-email');
-  // customerEmail.CustomValidation = new CustomValidation(customerEmail, userInfo);
-  // customerEmail.CustomValidation.arrOfRuls = emailValidityChecks;
-
-  // const customerPhone = document.querySelector('.js-customer-tel');
-  // customerPhone.CustomValidation = new CustomValidation(customerPhone, userInfo);
-  // customerPhone.CustomValidation.arrOfRuls = phoneValidityChecks;
-
-  // const customerAddress = document.querySelector('.js-customer-address');
-  // customerAddress.CustomValidation = new CustomValidation(customerAddress, userInfo);
-  // customerAddress.CustomValidation.arrOfRuls = addressValidityChecks;
-
-  // const customerCity = document.querySelector('.js-customer-city');
-  // customerCity.CustomValidation = new CustomValidation(customerCity, userInfo);
-  // customerCity.CustomValidation.arrOfRuls = cityValidityChecks;
-
-  // const customerState = document.querySelector('.js-customer-state');
-  // customerState.CustomValidation = new CustomValidation(customerState, userInfo);
-  // customerState.CustomValidation.arrOfRuls = stateValidityChecks;
-
-  // const customerZip = document.querySelector('.js-customer-zip');
-  // customerZip.CustomValidation = new CustomValidation(customerZip, userInfo);
-  // customerZip.CustomValidation.arrOfRuls = zipValidityChecks;
-
-  // const customerCountry = document.querySelector('.js-customer-country');
-  // customerCountry.CustomValidation = new CustomValidation(customerCountry, userInfo);
-  // customerCountry.CustomValidation.arrOfRuls = countryValidityChecks;
-
-  // const customerCardName = document.querySelector('.js-cardholder-name');
-  // customerCardName.CustomValidation = new CustomValidation(customerCardName, userInfo);
-  // customerCardName.CustomValidation.arrOfRuls = nameOfCurdValidityChecks;
-
-  // const customerCardNumber = document.querySelector('.js-card-number');
-  // customerCardNumber.CustomValidation = new CustomValidation(customerCardNumber, userInfo);
-  // customerCardNumber.CustomValidation.arrOfRuls = curdNumberValidityChecks;
-
-  // const cusotmerCvc = document.querySelector('.js-card-cvc');
-  // cusotmerCvc.CustomValidation = new CustomValidation(cusotmerCvc, userInfo);
-  // cusotmerCvc.CustomValidation.arrOfRuls = cvcValidityChecks;
-
-  // const customerCardExpiry = document.querySelector('.js-card-expiry');
-  // customerCardExpiry.CustomValidation = new CustomValidation(customerCardExpiry, userInfo);
-  // customerCardExpiry.CustomValidation.arrOfRuls = expiryValidityChecks;
-
-  const allInputs = document.querySelectorAll('.js-inputs');
-
-  const cancelBtn = document.querySelector('.js-cancel-btn');
-  const submitBtn = document.querySelector('.js-submit-btn');
-
-  submitBtn.addEventListener('click', function() {
-    getInfoAboutUser(userInfo);
-  });
-
-  form.addEventListener('submit', function() {
-    validate(allInputs);
-  });
-
-  cancelBtn.addEventListener('click', function() {
-    resetForm(form);
-  });
-
-  function resetForm(someForm) {
-    someForm.reset();
-  }
-
-  function validate(arrOfInputs) {
-    [].forEach.call(arrOfInputs, item => {
-      item.CustomValidation.checkInput();
-    });
-  }
-
-  function getInfoAboutUser(infoObj) {
-    console.dir(infoObj);
-  }
-
 }());
