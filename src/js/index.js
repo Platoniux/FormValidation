@@ -333,55 +333,101 @@
     }
   ];
 
-  const form = document.querySelector('.js-form');
+  const form = document.querySelectorAll('.js-form');
 
-  const customerNameInput = document.querySelector('.js-customer-name');
-  customerNameInput.CustomValidation = new CustomValidation(customerNameInput, userInfo);
-  customerNameInput.CustomValidation.arrOfRuls = customerNameValidityChecks;
+  function installValidationForForm(arrOfForms) {
+    [].forEach.call(arrOfForms, item => {
+      let arrOfInputs = item.querySelectorAll('.js-inputs');
+      let buttons = item.querySelectorAll('.js-buttons');
+      [].forEach.call(arrOfInputs, item => {
+        if (item.classList.contains('js-customer-name')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = customerNameValidityChecks;
+        } else if (item.classList.contains('js-customer-email')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = emailValidityChecks;
+        } else if (item.classList.contains('js-customer-tel')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = phoneValidityChecks;
+        } else if (item.classList.contains('js-customer-city')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = cityValidityChecks;
+        } else if (item.classList.contains('js-customer-address')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = addressValidityChecks;
+        } else if (item.classList.contains('js-customer-state')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = stateValidityChecks;
+        } else if (item.classList.contains('js-customer-zip')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = zipValidityChecks;
+        } else if (item.classList.contains('js-customer-country')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = countryValidityChecks;
+        } else if (item.classList.contains('js-cardholder-name')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = nameOfCurdValidityChecks;
+        } else if (item.classList.contains('js-card-number')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = curdNumberValidityChecks;
+        } else if (item.classList.contains('js-card-cvc')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = cvcValidityChecks;
+        } else if (item.classList.contains('js-card-expiry')) {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = expiryValidityChecks;
+        }
+      })
+    });
+  }
 
-  const customerEmail = document.querySelector('.js-customer-email');
-  customerEmail.CustomValidation = new CustomValidation(customerEmail, userInfo);
-  customerEmail.CustomValidation.arrOfRuls = emailValidityChecks;
+  // const customerNameInput = document.querySelector('.js-customer-name');
+  // customerNameInput.CustomValidation = new CustomValidation(customerNameInput, userInfo);
+  // customerNameInput.CustomValidation.arrOfRuls = customerNameValidityChecks;
 
-  const customerPhone = document.querySelector('.js-customer-tel');
-  customerPhone.CustomValidation = new CustomValidation(customerPhone, userInfo);
-  customerPhone.CustomValidation.arrOfRuls = phoneValidityChecks;
+  // const customerEmail = document.querySelector('.js-customer-email');
+  // customerEmail.CustomValidation = new CustomValidation(customerEmail, userInfo);
+  // customerEmail.CustomValidation.arrOfRuls = emailValidityChecks;
 
-  const customerAddress = document.querySelector('.js-customer-address');
-  customerAddress.CustomValidation = new CustomValidation(customerAddress, userInfo);
-  customerAddress.CustomValidation.arrOfRuls = addressValidityChecks;
+  // const customerPhone = document.querySelector('.js-customer-tel');
+  // customerPhone.CustomValidation = new CustomValidation(customerPhone, userInfo);
+  // customerPhone.CustomValidation.arrOfRuls = phoneValidityChecks;
 
-  const customerCity = document.querySelector('.js-customer-city');
-  customerCity.CustomValidation = new CustomValidation(customerCity, userInfo);
-  customerCity.CustomValidation.arrOfRuls = cityValidityChecks;
+  // const customerAddress = document.querySelector('.js-customer-address');
+  // customerAddress.CustomValidation = new CustomValidation(customerAddress, userInfo);
+  // customerAddress.CustomValidation.arrOfRuls = addressValidityChecks;
 
-  const customerState = document.querySelector('.js-customer-state');
-  customerState.CustomValidation = new CustomValidation(customerState, userInfo);
-  customerState.CustomValidation.arrOfRuls = stateValidityChecks;
+  // const customerCity = document.querySelector('.js-customer-city');
+  // customerCity.CustomValidation = new CustomValidation(customerCity, userInfo);
+  // customerCity.CustomValidation.arrOfRuls = cityValidityChecks;
 
-  const customerZip = document.querySelector('.js-customer-zip');
-  customerZip.CustomValidation = new CustomValidation(customerZip, userInfo);
-  customerZip.CustomValidation.arrOfRuls = zipValidityChecks;
+  // const customerState = document.querySelector('.js-customer-state');
+  // customerState.CustomValidation = new CustomValidation(customerState, userInfo);
+  // customerState.CustomValidation.arrOfRuls = stateValidityChecks;
 
-  const customerCountry = document.querySelector('.js-customer-country');
-  customerCountry.CustomValidation = new CustomValidation(customerCountry, userInfo);
-  customerCountry.CustomValidation.arrOfRuls = countryValidityChecks;
+  // const customerZip = document.querySelector('.js-customer-zip');
+  // customerZip.CustomValidation = new CustomValidation(customerZip, userInfo);
+  // customerZip.CustomValidation.arrOfRuls = zipValidityChecks;
 
-  const customerCardName = document.querySelector('.js-cardholder-name');
-  customerCardName.CustomValidation = new CustomValidation(customerCardName, userInfo);
-  customerCardName.CustomValidation.arrOfRuls = nameOfCurdValidityChecks;
+  // const customerCountry = document.querySelector('.js-customer-country');
+  // customerCountry.CustomValidation = new CustomValidation(customerCountry, userInfo);
+  // customerCountry.CustomValidation.arrOfRuls = countryValidityChecks;
 
-  const customerCardNumber = document.querySelector('.js-card-number');
-  customerCardNumber.CustomValidation = new CustomValidation(customerCardNumber, userInfo);
-  customerCardNumber.CustomValidation.arrOfRuls = curdNumberValidityChecks;
+  // const customerCardName = document.querySelector('.js-cardholder-name');
+  // customerCardName.CustomValidation = new CustomValidation(customerCardName, userInfo);
+  // customerCardName.CustomValidation.arrOfRuls = nameOfCurdValidityChecks;
 
-  const cusotmerCvc = document.querySelector('.js-card-cvc');
-  cusotmerCvc.CustomValidation = new CustomValidation(cusotmerCvc, userInfo);
-  cusotmerCvc.CustomValidation.arrOfRuls = cvcValidityChecks;
+  // const customerCardNumber = document.querySelector('.js-card-number');
+  // customerCardNumber.CustomValidation = new CustomValidation(customerCardNumber, userInfo);
+  // customerCardNumber.CustomValidation.arrOfRuls = curdNumberValidityChecks;
 
-  const customerCardExpiry = document.querySelector('.js-card-expiry');
-  customerCardExpiry.CustomValidation = new CustomValidation(customerCardExpiry, userInfo);
-  customerCardExpiry.CustomValidation.arrOfRuls = expiryValidityChecks;
+  // const cusotmerCvc = document.querySelector('.js-card-cvc');
+  // cusotmerCvc.CustomValidation = new CustomValidation(cusotmerCvc, userInfo);
+  // cusotmerCvc.CustomValidation.arrOfRuls = cvcValidityChecks;
+
+  // const customerCardExpiry = document.querySelector('.js-card-expiry');
+  // customerCardExpiry.CustomValidation = new CustomValidation(customerCardExpiry, userInfo);
+  // customerCardExpiry.CustomValidation.arrOfRuls = expiryValidityChecks;
 
   const allInputs = document.querySelectorAll('.js-inputs');
 
@@ -409,8 +455,6 @@
       item.CustomValidation.checkInput();
     });
   }
-
-
 
   function getInfoAboutUser(infoObj) {
     console.dir(infoObj);
