@@ -25,7 +25,7 @@
         <label for="customer-name" class="contact__label">
           Name
           <input id="customer-name" 
-                 class="contact__field js-customer-name js-iputs" 
+                 class="contact__field js-customer-name js-inputs" 
                  name="customer-name" 
                  type="text" 
                  autocomplete ="section-contact name" 
@@ -44,7 +44,7 @@
           Email
           <input type="email"
                  id="customer-email"
-                 class="contact__field js-customer-email js-iputs"
+                 class="contact__field js-customer-email js-inputs"
                  name="customer-email" 
                  autocomplete="section-contact email"
                  autocapitalize="off"
@@ -62,7 +62,7 @@
           Phone
           <input type="tel"
                  id="customer-tel"
-                 class="contact__field js-customer-tel js-iputs"
+                 class="contact__field js-customer-tel js-inputs"
                  name="customer-tel" 
                  autocomplete="section-contact mobile tel"
                  minlength="9" 
@@ -88,7 +88,7 @@
           Address
           <textarea name="customer-address" 
                     id="customer-address"
-                    class="shipping__field shipping__field--textarea js-customer-address js-iputs"
+                    class="shipping__field shipping__field--textarea js-customer-address js-inputs"
                     autocomplete="section-shipping shipping street-address"
                     autocapitalize="off"
                     autocorrect="off"
@@ -103,7 +103,7 @@
           City
           <input type="text"
                  id="customer-city"
-                 class="shipping__field js-customer-city js-iputs"
+                 class="shipping__field js-customer-city js-inputs"
                  name="customer-city"
                  autocomplete="section-shipping shipping address-level2"
                  autocapitalize="off"
@@ -121,7 +121,7 @@
           <input type="text"
                  id="customer-state"
                  name="customer-state"
-                 class="shipping__field js-customer-state js-iputs" 
+                 class="shipping__field js-customer-state js-inputs" 
                  autocomplete="section-shipping shipping address-level1"
                  placeholder="New York" 
                  autocapitalize="off"
@@ -138,7 +138,7 @@
           <input type="text"
                  id="customer-zip"
                  name="customer-zip"
-                 class="shipping__field js-customer-zip js-iputs"
+                 class="shipping__field js-customer-zip js-inputs"
                  autocomplete="section-shipping shipping postal-code"
                  minlength="3" 
                  placeholder="10035" 
@@ -156,7 +156,7 @@
           <input type="text"
                  id="customer-country"
                  name="customer-country"
-                 class="shipping__field js-customer-country js-iputs"
+                 class="shipping__field js-customer-country js-inputs"
                  autocomplete="section-shipping shipping country-name"
                  placeholder="USA" 
                  autocapitalize="off"
@@ -186,7 +186,7 @@
           <input type="text"
                  id="cardholder-name"
                  name="cardholder-name"
-                 class="payment__field js-cardholder-name js-iputs"
+                 class="payment__field js-cardholder-name js-inputs"
                  autocomplete="section-billing billing cc-name"
                  autocapitalize="off"
                  autocorrect="off"
@@ -204,7 +204,7 @@
           <input type="tel"
                  id="card-number"
                  name="card-number"
-                 class="payment__field js-card-number js-iputs"
+                 class="payment__field js-card-number js-inputs"
                  autocomplete="section-billing billing cc-number"
                  autocapitalize="off"
                  autocorrect="off"
@@ -223,7 +223,7 @@
           CVC
           <input type="tel"
                  id="card-cvc"
-                 class="payment__field js-card-cvc js-iputs"
+                 class="payment__field js-card-cvc js-inputs"
                  maxlength="4"
                  inputmode="numeric"
                  placeholder="CVC"
@@ -243,7 +243,7 @@
           <input type="tel"
                  id="card-expiry"
                  name="card-expiry" 
-                 class="payment__field js-card-expiry js-iputs"
+                 class="payment__field js-card-expiry js-inputs"
                  autocomplete="section-billing billing cc-exp" 
                  inputmode="numeric" 
                  maxlength="7"
@@ -262,14 +262,14 @@
       <div class="page-form__btn-container">
         <button type="reset"
                 form="customer-info" 
-                class="page-form__btn page-form__btn--cancel js-cancel-btn" 
+                class="page-form__btn page-form__btn--cancel js-cancel-btn js-buttons" 
                 name="cancel"
                 value="Cancel">
           cancel
         </button>
         <button type="submit"
                 form="customer-info"
-                class="page-form__btn page-form__btn--submit js-submit-btn"
+                class="page-form__btn page-form__btn--submit js-submit-btn js-buttons"
                 name="submit"
                 value="submit">
           submit
