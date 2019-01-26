@@ -32,7 +32,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i"
+                 pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
                  placeholder="Full name">
           <ul class="page-form__input-requirements js-custom-name-req">
             <li>This field is required</li>
@@ -49,7 +49,7 @@
                  autocomplete="section-contact email"
                  autocapitalize="off"
                  autocorrect="off"
-                 pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" 
+                 pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" 
                  required
                  inputmode="email"
                  placeholder="name@example.com">
@@ -69,7 +69,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/\+[0-9]+/" 
+                 pattern="\+[0-9]+" 
                  inputmode="tel"
                  placeholder="+11234567">
           <ul class="page-form__input-requirements js-custom-phone-req">
@@ -110,7 +110,7 @@
                  autocorrect="off"
                  placeholder="New York" 
                  required
-                 pattern="/^[a-z ,.'-]+$/i">
+                 pattern="^[a-z ,.'-]+$">
           <ul class="page-form__input-requirements js-custom-city-req">
             <li>This field is required</li>
             <li>Must contain only letters (no digits or special characters)</li>
@@ -127,7 +127,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/^[a-z ,.'-]+$/i">
+                 pattern="^[a-z ,.'-]+$">
           <ul class="page-form__input-requirements js-custom-state-req">
             <li>This field is required</li>
             <li>Must contain only letters (no digits or special characters)</li>
@@ -145,7 +145,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/([\d\s\w])+/i">
+                 pattern="([\d\s\w])+">
           <ul class="page-form__input-requirements js-custom-zip-req">
             <li>This field is required</li>
             <li>Must contain only letters and/or digits (no special characters)</li>
@@ -162,7 +162,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/^[a-z ,.'-]+$/i">
+                 pattern="^[a-z ,.'-]+$">
           <ul class="page-form__input-requirements js-custom-country-req">
             <li>This field is required</li>
             <li>Must contain only letters (no digits or special characters)</li>
@@ -191,7 +191,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/i"
+                 pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
                  placeholder="Full Name">
           <ul class="page-form__input-requirements js-name-card-req">
             <li>This field is required</li>
@@ -209,7 +209,7 @@
                  autocapitalize="off"
                  autocorrect="off"
                  required
-                 pattern="/[0-9]+/"
+                 pattern="[0-9]+"
                  maxlength="16"
                  inputmode="numeric"
                  placeholder="1111111111111111">
@@ -224,10 +224,11 @@
           <input type="tel"
                  id="card-cvc"
                  class="payment__field js-card-cvc js-inputs"
+                 name="card-cvc" 
                  maxlength="4"
                  inputmode="numeric"
                  placeholder="CVC"
-                 pattern="/[0-9]+/"
+                 pattern="[0-9]+"
                  autocomplete="section-billing billing cc-csc"
                  autocapitalize="off"
                  autocorrect="off"
@@ -248,7 +249,7 @@
                  inputmode="numeric" 
                  maxlength="7"
                  placeholder="MM-YYYY"
-                 pattern="/\d{2}-\d{4}/"
+                 pattern="\d{2}-\d{4}"
                  autocapitalize="off"
                  autocorrect="off"
                  required>

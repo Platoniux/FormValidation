@@ -48,7 +48,7 @@
       }
     },
     addInfoAboutUser: function(input) {
-      let key = input.id;
+      let key = input.name;
       this.infoObj[key] = input.value;
     },
     registerListener: function() {
@@ -113,7 +113,7 @@
     },
     {
       isInvalid: function(input) {
-        return input.value[0] != '+';
+        return input.value[0] !== '+';
       },
       invalidityMessage: 'The firs character must be \'+\'',
       element: document.querySelector('.js-custom-phone-req li:nth-child(2)')
@@ -255,7 +255,7 @@
     },
     {
       isInvalid: function(input) {
-        return input.value.length != 16;
+        return input.value.length !== 16;
       },
       invalidityMessage: 'Must contains 16 digits',
       element: document.querySelector('.js-cc-number-req li:nth-child(2)')
@@ -313,7 +313,7 @@
       isInvalid: function(input) {
         if (input.value) {
           let regexp = /\d\d\-\d\d\d\d/;
-          return (input.value.length != 7 || !(regexp.test(input.value)));
+          return (input.value.length !== 7 || !(regexp.test(input.value)));
         }
         return true;
       },
@@ -333,6 +333,15 @@
     }
   ];
 
+  const requiredField = [
+    {
+      isInvalid: function(input) {
+        return input.value === '';
+      },
+      invalidityMessage: 'This field is required'
+    }
+  ];
+
   const forms = document.querySelectorAll('.js-form');
 
   installValidationForForm(forms);
@@ -341,15 +350,10 @@
     [].forEach.call(arrOfForms, formItem => {
       let arrOfInputs = formItem.querySelectorAll('.js-inputs');
       let buttons = formItem.querySelectorAll('.js-buttons');
-      console.log(arrOfInputs);
-      console.log(buttons);
       [].forEach.call(arrOfInputs, item => {
-        console.log(123);
         if (item.classList.contains('js-customer-name')) {
-                    console.log(item);
           item.CustomValidation = new CustomValidation(item, userInfo);
           item.CustomValidation.arrOfRuls = customerNameValidityChecks;
-          console.log(item);
         } else if (item.classList.contains('js-customer-email')) {
           item.CustomValidation = new CustomValidation(item, userInfo);
           item.CustomValidation.arrOfRuls = emailValidityChecks;
@@ -383,6 +387,9 @@
         } else if (item.classList.contains('js-card-expiry')) {
           item.CustomValidation = new CustomValidation(item, userInfo);
           item.CustomValidation.arrOfRuls = expiryValidityChecks;
+        } else {
+          item.CustomValidation = new CustomValidation(item, userInfo);
+          item.CustomValidation.arrOfRuls = requiredField;
         }
       });
       [].forEach.call(buttons, btnItem => {
@@ -390,14 +397,12 @@
           btnItem.addEventListener('click', function() {
             resetForm(formItem);
           });
-        } else if (btnItem.classList.contains('js-submit-btn')) {
-          btnItem.addEventListener('click', function() {
-            getInfoAboutUser(userInfo);
-          });
         }
       });
-      formItem.addEventListener('submit', function() {
-        validate(arrOfInputs);
+      validate(arrOfInputs);
+      formItem.addEventListener('submit', function(e) {
+        e.preventDefault();
+        getInfoAboutUser(userInfo);
       });
     });
 
@@ -406,7 +411,7 @@
     }
 
     function validate(inputs) {
-      [].forEach.call(arrOfInputs, item => {
+      [].forEach.call(inputs, item => {
         if (item.CustomValidation) {
           item.CustomValidation.checkInput();
         }
