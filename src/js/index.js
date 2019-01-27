@@ -317,7 +317,7 @@
         }
         return true;
       },
-      invalidityMessage: 'Must contain only 7 characters (including '-')',
+      invalidityMessage: 'Must contain only 7 characters (including \'-\')',
       element: document.querySelector('.js-card-expiry-req li:nth-child(2)')
     },
     {
